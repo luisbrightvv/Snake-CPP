@@ -1,23 +1,23 @@
-# 🐍 Snake Game in C++ with SFML
+# 🐍 Snake Game in C++ (SFML)
 
-A modern version of the **classic Snake game** built with **C++** and **SFML**.  
-This project is part of my portfolio to demonstrate skills in:
+Simple Snake game prototype built with **C++17** and **SFML 2.5+**. Phase 1 focuses on getting the build system running and opening the game window.
 
-- Game development with C++
-- SFML (Simple and Fast Multimedia Library)
-- Object-Oriented Programming
-- Game loop, input handling, and rendering
+## Requirements
+- C++17 compatible compiler
+- [SFML 2.5+](https://www.sfml-dev.org/) (macOS: `brew install sfml`)
 
-## 🚀 Setup
-
-### Requirements
-- C++17 or higher
-- [SFML 2.5+](https://www.sfml-dev.org/)
-
-### Build Instructions
+## Build & Run
 ```bash
 mkdir build
 cd build
 cmake ..
 make
-./snake# CPP-Snake
+./snake
+```
+
+## Roadmap
+- [ ] Create game window
+- [ ] Implement basic snake movement
+- [ ] Spawn food items
+- [ ] Handle collisions and scoring
+- [ ] Add menu and polish
