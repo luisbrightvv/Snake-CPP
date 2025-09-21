@@ -1,0 +1,4 @@
+# Force GitHub Linguist to count only C++ source files
+CMakeLists.txt linguist-vendored
+*.cmake linguist-vendored
+build/* linguist-vendored
