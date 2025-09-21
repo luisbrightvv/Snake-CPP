@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/snake.dir/src/main.cpp.o -o snake  -Wl,-rpath,/opt/homebrew/lib /opt/homebrew/lib/libsfml-graphics.3.0.2.dylib /opt/homebrew/lib/libsfml-window.3.0.2.dylib /opt/homebrew/lib/libsfml-system.3.0.2.dylib
