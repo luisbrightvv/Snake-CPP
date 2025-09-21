@@ -41,6 +41,7 @@ private:
     int m_score = 0;
     sf::Font m_font;
     std::unique_ptr<sf::Text> m_gameOverText;
+    std::unique_ptr<sf::Text> m_scoreText;
 
 };
 
@@ -66,6 +67,14 @@ Game::Game()
     m_gameOverText->setCharacterSize(32);
     m_gameOverText->setFillColor(sf::Color::White);
     m_gameOverText->setPosition(sf::Vector2f(200.f, 250.f));
+    
+    // Setup score text
+    m_scoreText = std::make_unique<sf::Text>();
+    m_scoreText->setFont(m_font);
+    m_scoreText->setCharacterSize(24);
+    m_scoreText->setFillColor(sf::Color::Yellow);
+    m_scoreText->setPosition(sf::Vector2f(10.f, 10.f));
+    m_scoreText->setString("Score: 0");
 }
 
 void Game::run() {
@@ -157,6 +166,7 @@ void Game::handleCollisions() {
         m_snake.grow();
         m_food.spawn(m_window.getSize());
         m_score += 10; 
+        m_scoreText->setString("Score: " + std::to_string(m_score));
         std::cout << "Score: " << m_score << std::endl;
     }
 }
@@ -173,6 +183,8 @@ void Game::render() {
     }
     
     m_window.draw(m_food.getShape());
+
+    m_window.draw(*m_scoreText);
 
     m_window.display();
 }
