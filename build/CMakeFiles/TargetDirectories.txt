@@ -1,3 +1,0 @@
-/Users/keombuselli/Desktop/videogiochi/Snake/build/CMakeFiles/snake.dir
-/Users/keombuselli/Desktop/videogiochi/Snake/build/CMakeFiles/edit_cache.dir
-/Users/keombuselli/Desktop/videogiochi/Snake/build/CMakeFiles/rebuild_cache.dir
