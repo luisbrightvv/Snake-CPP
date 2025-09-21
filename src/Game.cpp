@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
-
 #include <optional>
-
+#include <iostream> 
 #include "Snake.cpp"
 #include "Food.cpp"
 
@@ -38,6 +37,7 @@ private:
     float m_moveInterval;
     sf::Vector2f m_direction;
     bool m_gameOver;
+    int m_score = 0;
 };
 
 Game::Game()
@@ -50,6 +50,7 @@ Game::Game()
     m_window.setFramerateLimit(60);
     m_food.spawn(m_window.getSize());
     m_snake.setDirection(m_direction);
+    m_score = 0; 
 }
 
 void Game::run() {
@@ -140,6 +141,8 @@ void Game::handleCollisions() {
     if (headPos == m_food.getShape().getPosition()) {
         m_snake.grow();
         m_food.spawn(m_window.getSize());
+        m_score += 10; 
+        std::cout << "Score: " << m_score << std::endl;
     }
 }
 
@@ -168,4 +171,5 @@ void Game::reset() {
     m_snake.setDirection(m_direction);
     m_moveClock.restart();
     m_gameOver = false;
+    m_score = 0;
 }
