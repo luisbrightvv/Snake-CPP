@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include <optional>
+#include <memory>
+
 #include <iostream> 
 #include "Snake.cpp"
 #include "Food.cpp"
@@ -38,10 +39,13 @@ private:
     sf::Vector2f m_direction;
     bool m_gameOver;
     int m_score = 0;
+    sf::Font m_font;
+    std::unique_ptr<sf::Text> m_gameOverText;
+
 };
 
 Game::Game()
-    : m_window(sf::VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}), "Snake Game"),
+    : m_window(sf::VideoMode(sf::Vector2u(WINDOW_WIDTH, WINDOW_HEIGHT)), "Snake Game"),
       m_snake(),
       m_food(),
       m_moveInterval(MOVE_INTERVAL_SECONDS),
@@ -51,6 +55,17 @@ Game::Game()
     m_food.spawn(m_window.getSize());
     m_snake.setDirection(m_direction);
     m_score = 0; 
+
+    // Load font and setup game over text
+    if (!m_font.openFromFile("arial.ttf")) {
+        std::cerr << "Error loading font" << std::endl;
+    }
+    m_gameOverText = std::make_unique<sf::Text>();
+    m_gameOverText->setFont(m_font);
+    m_gameOverText->setString("Game Over\nPress SPACE to Restart");
+    m_gameOverText->setCharacterSize(32);
+    m_gameOverText->setFillColor(sf::Color::White);
+    m_gameOverText->setPosition(sf::Vector2f(200.f, 250.f));
 }
 
 void Game::run() {
@@ -152,7 +167,11 @@ void Game::render() {
     for (const auto& segment : m_snake.getBody()) {
         m_window.draw(segment);
     }
-
+    
+    if (m_gameOver) {
+    m_window.draw(*m_gameOverText);
+    }
+    
     m_window.draw(m_food.getShape());
 
     m_window.display();
