@@ -162,6 +162,7 @@ void Game::handleCollisions() {
         }
     }
 
+    // Compare snake head's position with the center of the food (CircleShape position is at center)
     if (headPos == m_food.getShape().getPosition()) {
         m_snake.grow();
         m_food.spawn(m_window.getSize());

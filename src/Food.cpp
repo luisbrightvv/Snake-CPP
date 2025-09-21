@@ -15,7 +15,7 @@ public:
         : m_shape(),
           m_rng(static_cast<std::mt19937::result_type>(
               std::chrono::steady_clock::now().time_since_epoch().count())) {
-        m_shape.setSize(sf::Vector2f(FOOD_CELL_SIZE_F, FOOD_CELL_SIZE_F));
+        m_shape.setRadius(FOOD_CELL_SIZE_F / 2.0f);
         m_shape.setFillColor(sf::Color::Red);
         spawn();
     }
@@ -37,11 +37,11 @@ public:
         m_shape.setPosition(sf::Vector2f(x, y));
     }
 
-    const sf::RectangleShape& getShape() const {
+    const sf::CircleShape& getShape() const {
         return m_shape;
     }
 
 private:
-    sf::RectangleShape m_shape;
+    sf::CircleShape m_shape;
     std::mt19937 m_rng;
 };
