@@ -13,10 +13,14 @@ bool isAxisAlignedStep(const sf::Vector2f& value) {
     return horizontal || vertical;
 }
 
-sf::RectangleShape makeSegment(const sf::Vector2f& position) {
+sf::RectangleShape makeSegment(const sf::Vector2f& position, bool isHead = false) {
     sf::RectangleShape segment;
     segment.setSize(sf::Vector2f(SNAKE_CELL_SIZE, SNAKE_CELL_SIZE));
-    segment.setFillColor(sf::Color::Green);
+    if (isHead) {
+        segment.setFillColor(sf::Color(100, 255, 100)); // light green for head
+    } else {
+        segment.setFillColor(sf::Color(0, 180, 0));     // dark green for body
+    }
     segment.setPosition(position);
     return segment;
 }
@@ -27,7 +31,7 @@ public:
     Snake()
         : m_segments(),
           m_direction(SNAKE_CELL_SIZE, 0.0f) {
-        m_segments.push_back(makeSegment(sf::Vector2f(START_X, START_Y)));
+        m_segments.push_back(makeSegment(sf::Vector2f(START_X, START_Y), true));
     }
 
     void setDirection(const sf::Vector2f& dir) {
