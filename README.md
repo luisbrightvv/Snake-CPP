@@ -3,7 +3,7 @@
 Welcome to my neon take on the classic Snake. It is a clean C++17 codebase that keeps the gameplay logic tidy and uses **SFML 3** (falls back to **SFML 2.5** automatically) for windowing, rendering, and input. The project has a full start screen, animated food, rainbow snake body, and an arcade HUD styled with the Press Start 2P font.
 
 ## 🎥 Quick Look
-<video src="docs/Registrazione Snake Game.mov" controls width="640" muted loop></video>
+<video src="docs/demo.gif" controls width="640" muted loop></video>
 
 - The recording shows the start screen flow, dynamic snake colors, pulsing food animation, live score updates, and the restart loop after Game Over
 
