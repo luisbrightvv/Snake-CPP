@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <chrono>
 #include <random>
+#include <cmath>
 
 namespace {
 constexpr unsigned int FOOD_CELL_SIZE = 20;
@@ -37,6 +38,12 @@ public:
         m_shape.setPosition(sf::Vector2f(x, y));
     }
 
+    void update() {
+        float time = m_animClock.getElapsedTime().asSeconds();
+        float scale = 1.0f + 0.1f * std::sin(time * 3.0f);
+        m_shape.setScale(sf::Vector2f(scale, scale));
+    }
+
     const sf::CircleShape& getShape() const {
         return m_shape;
     }
@@ -44,4 +51,5 @@ public:
 private:
     sf::CircleShape m_shape;
     std::mt19937 m_rng;
+    sf::Clock m_animClock;
 };

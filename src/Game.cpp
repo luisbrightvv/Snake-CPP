@@ -58,8 +58,8 @@ Game::Game()
     m_score = 0; 
 
     // Load font and setup game over text
-    if (!m_font.openFromFile("arial.ttf")) {
-        std::cerr << "Error loading font" << std::endl;
+    if (!m_font.openFromFile("assets/fonts/PressStart2P.ttf")) {
+        std::cerr << "Error loading arcade font" << std::endl;
     }
     m_gameOverText = std::make_unique<sf::Text>();
     m_gameOverText->setFont(m_font);
@@ -144,6 +144,9 @@ void Game::update() {
         m_moveClock.restart();
         handleCollisions();
     }
+
+    // Update food animation (if any), but only when not game over
+    m_food.update();
 }
 
 void Game::handleCollisions() {
