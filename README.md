@@ -3,7 +3,8 @@
 Welcome to my neon take on the classic Snake. It is a clean C++17 codebase that keeps the gameplay logic tidy and uses **SFML 3** (falls back to **SFML 2.5** automatically) for windowing, rendering, and input. The project has a full start screen, animated food, rainbow snake body, and an arcade HUD styled with the Press Start 2P font.
 
 ## 🎥 Quick Look
-- Watch the latest gameplay capture in `docs/Registrazione Snake Game.mov`
+<video src="docs/Registrazione%20Snake%20Game.mov" controls width="640" muted loop></video>
+
 - The recording shows the start screen flow, dynamic snake colors, pulsing food animation, live score updates, and the restart loop after Game Over
 
 ## ✨ Features
@@ -26,7 +27,7 @@ brew install sfml
 ```
 
 ### Fonts / Assets
-- Arcade font lives in `assets/fonts/Press_Start_2P/PressStart2P-Regular.ttf`
+- Arcade font lives in `assets/fonts/PressStart2P.ttf`
   - The runtime first looks for `assets/fonts/PressStart2P.ttf` (ideal: copy/rename the file there)
   - If missing, it tries the parent/build-relative paths and finally falls back to common system fonts (Arial, Courier New, Verdana)
 
@@ -55,9 +56,9 @@ Snake/
 ├── README.md
 ├── assets/
 │   └── fonts/
-│       └── Press_Start_2P/PressStart2P-Regular.ttf
+│       └── PressStart2P.ttf
 ├── docs/
-│   └── registrazione snake.mov
+│   └── Registrazione Snake Game.mov
 └── src/
     ├── Food.cpp
     ├── Game.cpp
