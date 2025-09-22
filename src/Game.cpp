@@ -173,7 +173,7 @@ void Game::handleCollisions() {
 }
 
 void Game::render() {
-    m_window.clear(sf::Color::Black);
+    m_window.clear(sf::Color(30, 30, 30)); // dark gray background
 
     for (const auto& segment : m_snake.getBody()) {
         m_window.draw(segment);
