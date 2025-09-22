@@ -42,6 +42,8 @@ private:
     sf::Font m_font;
     std::unique_ptr<sf::Text> m_gameOverText;
     std::unique_ptr<sf::Text> m_scoreText;
+    bool m_onStartScreen = true;
+    std::unique_ptr<sf::Text> m_titleText;
 
 };
 
@@ -75,6 +77,13 @@ Game::Game()
     m_scoreText->setFillColor(sf::Color::Yellow);
     m_scoreText->setPosition(sf::Vector2f(10.f, 10.f));
     m_scoreText->setString("Score: 0");
+
+    m_titleText = std::make_unique<sf::Text>();
+    m_titleText->setFont(m_font);
+    m_titleText->setString("Snake C++ Edition\nPress SPACE to Start");
+    m_titleText->setCharacterSize(28);
+    m_titleText->setFillColor(sf::Color::White);
+    m_titleText->setPosition(sf::Vector2f(100.f, 200.f));
 }
 
 void Game::run() {
@@ -96,6 +105,14 @@ void Game::processEvents() {
 }
 
 void Game::handleKeyPress(sf::Keyboard::Key key) {
+    if (m_onStartScreen && key == sf::Keyboard::Key::Space) {
+        m_onStartScreen = false;
+        return;
+    }
+    if (m_onStartScreen) {
+        return;
+    }
+
     if (key == sf::Keyboard::Key::Escape) {
         m_window.close();
         return;
@@ -135,6 +152,9 @@ void Game::handleKeyPress(sf::Keyboard::Key key) {
 }
 
 void Game::update() {
+    if (m_onStartScreen) {
+        return;
+    }
     if (m_gameOver) {
         return;
     }
@@ -176,6 +196,13 @@ void Game::handleCollisions() {
 }
 
 void Game::render() {
+    if (m_onStartScreen) {
+        m_window.clear(sf::Color(30, 30, 30));
+        m_window.draw(*m_titleText);
+        m_window.display();
+        return;
+    }
+
     m_window.clear(sf::Color(30, 30, 30)); // dark gray background
 
     for (const auto& segment : m_snake.getBody()) {
@@ -206,5 +233,4 @@ void Game::reset() {
     m_snake.setDirection(m_direction);
     m_moveClock.restart();
     m_gameOver = false;
-    m_score = 0;
 }
