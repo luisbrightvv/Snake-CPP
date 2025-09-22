@@ -1,23 +1,24 @@
 #include <SFML/Graphics.hpp>
 #include <chrono>
-#include <random>
 #include <cmath>
+#include <random>
 
 namespace {
 constexpr unsigned int FOOD_CELL_SIZE = 20;
 constexpr unsigned int DEFAULT_WIDTH = 800;
 constexpr unsigned int DEFAULT_HEIGHT = 600;
 constexpr float FOOD_CELL_SIZE_F = static_cast<float>(FOOD_CELL_SIZE);
+constexpr float FOOD_RADIUS = FOOD_CELL_SIZE_F * 0.5f;
 }
 
 class Food {
 public:
     Food()
-        : m_shape(),
+        : m_shape(FOOD_RADIUS),
           m_rng(static_cast<std::mt19937::result_type>(
               std::chrono::steady_clock::now().time_since_epoch().count())) {
-        m_shape.setRadius(FOOD_CELL_SIZE_F / 2.0f);
         m_shape.setFillColor(sf::Color::Red);
+        m_shape.setOrigin(sf::Vector2f(FOOD_RADIUS, FOOD_RADIUS));
         spawn();
     }
 
@@ -32,15 +33,15 @@ public:
         std::uniform_int_distribution<unsigned int> distX(0, cellsX > 0 ? cellsX - 1 : 0);
         std::uniform_int_distribution<unsigned int> distY(0, cellsY > 0 ? cellsY - 1 : 0);
 
-        const float x = static_cast<float>(distX(m_rng) * FOOD_CELL_SIZE);
-        const float y = static_cast<float>(distY(m_rng) * FOOD_CELL_SIZE);
+        const float x = static_cast<float>(distX(m_rng) * FOOD_CELL_SIZE) + FOOD_RADIUS;
+        const float y = static_cast<float>(distY(m_rng) * FOOD_CELL_SIZE) + FOOD_RADIUS;
 
         m_shape.setPosition(sf::Vector2f(x, y));
     }
 
     void update() {
-        float time = m_animClock.getElapsedTime().asSeconds();
-        float scale = 1.0f + 0.1f * std::sin(time * 3.0f);
+        const float time = m_animClock.getElapsedTime().asSeconds();
+        const float scale = 1.0f + 0.1f * std::sin(time * 3.0f);
         m_shape.setScale(sf::Vector2f(scale, scale));
     }
 
