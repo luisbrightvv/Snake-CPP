@@ -72,10 +72,7 @@ Snake/
 
 ## 🧭 Roadmap Ideas
 - [ ] Sound effects and subtle background music
-- [ ] Multiple difficulties (faster tick rate, shrinking arena)
-- [ ] Persistent high-score table stored in JSON
 - [ ] Pause screen and settings menu
-- [ ] Touch or gamepad support (SFML input event mapping)
 
 ## ❤️ Thanks
 Thanks for checking out Snake C++ Edition! If you try a tweak or add a feature, drop the recording in `docs/`—I’d love to see it.
