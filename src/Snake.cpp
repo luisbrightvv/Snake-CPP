@@ -12,18 +12,6 @@ bool isAxisAlignedStep(const sf::Vector2f& value) {
     const bool vertical = std::fabs(value.y) == SNAKE_CELL_SIZE && value.x == 0.0f;
     return horizontal || vertical;
 }
-
-sf::RectangleShape makeSegment(const sf::Vector2f& position, bool isHead = false) {
-    sf::RectangleShape segment;
-    segment.setSize(sf::Vector2f(SNAKE_CELL_SIZE, SNAKE_CELL_SIZE));
-    if (isHead) {
-        segment.setFillColor(sf::Color(100, 255, 100)); // light green for head
-    } else {
-        segment.setFillColor(sf::Color(0, 180, 0));     // dark green for body
-    }
-    segment.setPosition(position);
-    return segment;
-}
 }
 
 class Snake {
@@ -74,6 +62,25 @@ public:
     }
 
 private:
+    sf::RectangleShape makeSegment(const sf::Vector2f& position, bool isHead = false) {
+        sf::RectangleShape segment;
+        segment.setSize(sf::Vector2f(SNAKE_CELL_SIZE, SNAKE_CELL_SIZE));
+        if (isHead) {
+            segment.setFillColor(sf::Color(100, 255, 100)); // light green for head
+        } else {
+            // Dynamic color based on length for rainbow effect
+            std::size_t len = m_segments.size();
+            sf::Color dynamicColor(
+                100 + (len * 5) % 155,
+                255 - (len * 3) % 200,
+                100 + (len * 7) % 155
+            );
+            segment.setFillColor(dynamicColor);
+        }
+        segment.setPosition(position);
+        return segment;
+    }
+
     std::vector<sf::RectangleShape> m_segments;
     sf::Vector2f m_direction;
 };
